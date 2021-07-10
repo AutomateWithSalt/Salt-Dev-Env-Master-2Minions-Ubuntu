@@ -19,6 +19,7 @@ jobs:
         run: |
           vagrant plugin install vagrant-vbguest       
   test:
+    needs: build
     environment: Initiate
     runs-on: ubuntu-latest
     steps:
