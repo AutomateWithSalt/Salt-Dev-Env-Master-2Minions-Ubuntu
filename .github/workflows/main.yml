@@ -23,7 +23,6 @@ jobs:
     environment: Initiate
     runs-on: ubuntu-latest
     steps:
-      - name: Install Vagrant and Virtualbox
       - uses: actions/checkout@v2          
       - name: Run a multi-line script
         run: |
