@@ -18,7 +18,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           vagrant plugin install vagrant-vbguest       
-jobs:
   test:
     environment: Initiate
     runs-on: ubuntu-latest
