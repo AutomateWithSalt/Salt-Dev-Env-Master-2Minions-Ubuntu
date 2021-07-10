@@ -17,7 +17,8 @@ jobs:
       - uses: actions/checkout@v2          
       - name: Run a multi-line script
         run: |
-          vagrant plugin install vagrant-vbguest       
+          vagrant plugin install vagrant-vbguest  
+          vagrant up
   test:
     needs: build
     environment: Initiate
@@ -26,6 +27,5 @@ jobs:
       - uses: actions/checkout@v2          
       - name: Run a multi-line script
         run: |
-          vagrant up
           ssh master
           sudo salt \* test.ping
