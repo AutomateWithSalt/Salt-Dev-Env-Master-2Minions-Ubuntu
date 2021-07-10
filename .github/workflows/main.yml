@@ -1,0 +1,31 @@
+name: CI
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev]
+    
+jobs:
+  build:
+    environment: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Vagrant and Virtualbox
+        run: |
+          sudo apt install vagrant -y
+          sudo apt install virtualbox -y
+      - uses: actions/checkout@v2          
+      - name: Run a multi-line script
+        run: |
+          vagrant plugin install vagrant-vbguest       
+  test:
+    environment: Initiate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Vagrant and Virtualbox
+      - uses: actions/checkout@v2          
+      - name: Run a multi-line script
+        run: |
+          vagrant up
+          ssh master
+          sudo salt \* test.ping
